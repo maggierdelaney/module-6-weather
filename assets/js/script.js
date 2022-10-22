@@ -1,5 +1,5 @@
-var searchCity = document.getElementById("#search-city");
-var searchButton = document.getElementById("#search-button");
+var searchCity = document.getElementById("search-city");
+var searchButton = document.getElementById("search-button");
 
 // var oldSearches = document.querySelector("#old-search");
 // API key: 8e55341ac7775e0941d6dfeb6271449e
