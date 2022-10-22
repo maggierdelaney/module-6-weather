@@ -79,6 +79,8 @@ To add a screenshot, create an `assets/images` folder in your repository and upl
 
 Weather forecast API: https://openweathermap.org/forecast5
 Form inputs: https://www.w3schools.com/html/html_forms.asp#:~:text=The%20element%20is%20a,buttons%2C%20submit%20buttons%2C%20etc.
+Local storage: https://w3collective.com/save-data-localstorage-javascript/
+
 
 
 ## License

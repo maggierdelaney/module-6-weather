@@ -19,18 +19,19 @@
 
   <main>
     <div>
-        <form>
+        <form id="search-form">
             <div>
                 <label for="search-city">Search a city: </label>
                 <input id="search-city" type="text" name="text"/>
             </div>
             <div>
-                <input id="search-button" type="submit" value="Submit" />
+                <button id="search-button">Submit</button>
             </div>
         </form>
     </div>
-    <div id="search">
-        <!--use bootstrap to add in the search bar and button-->
+    <div>
+        <ul id="city-list"></ul>
+    </div>
     </div>
     <div id="today-weather"></div>
     <div id="future-weather"></div>
