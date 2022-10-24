@@ -12,32 +12,42 @@
 </head>
 
 <body>
-  <header>
-    <h1>Weather Dashboard</h1>
+  <header class="jumbotron">
+    <h1 class="display-4">Weather Dashboard</h1>
   </header>
 
 
   <main>
     <div>
-        <form id="search-form">
-            <div>
-                <label for="search-city">Search a city: </label>
-                <input id="search-city" type="text" name="text"/>
+        <form id="search-form" class="form-group row">
+            <label for="search-city" class="col-lg-2 col-form-label">Search a city: </label>
+            <div class="col-lg-8">
+                <input class="form-control" id="search-city" type="text" name="text" placeholder="Enter city"/>
             </div>
             <div>
-                <button id="search-button">Submit</button>
+                <button type="button" class="btn btn-dark" id="search-button">Submit</button>
             </div>
         </form>
     </div>
-    <div>
-        <ul id="city-list"></ul>
+    <div class="list-group">
+        <ul class="list-group-item" id="city-list"></ul>
     </div>
     <div>  
-        <div id="today-weather">Today's Weather</div>
-        <div id="future-weather">5-Day Forecast</div>
+      <div class="card">
+        <h1 class="card-title">Today's Weather</h1>
+        <div id="today-weather" class="card-body"></div>
+      </div>
+      <div class="card">  
+        <h1 class="card-title">5-Day Forecast</h1>
+        <div class="card-body" id="future-weather"></div>
+        <div class="card-body" id="future-weather2"></div>
+        <div class="card-body" id="future-weather3"></div>
+        <div class="card-body" id="future-weather4"></div>
+        <div class="card-body" id="future-weather5"></div>
+      </div>
     </div>  
   </main>
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
   <script src="./js/script.js"></script>
 </body>
 
