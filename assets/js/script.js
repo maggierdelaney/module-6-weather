@@ -3,19 +3,21 @@ var searchCity = document.getElementById("search-city");
 var searchButton = document.getElementById("search-button");
 var cityList = document.getElementById("city-list");
 var APIkey = "63372ec60a804168fdfd9bc2b9e87df2"
+//variable for today's weather
 var todayWeather = document.getElementById("today-weather");
+//variables for the 5 day forecast
 var futureWeather = document.getElementById("future-weather");
 var futureWeather2 = document.getElementById("future-weather2");
 var futureWeather3 = document.getElementById("future-weather3");
 var futureWeather4 = document.getElementById("future-weather4");
 var futureWeather5 = document.getElementById("future-weather5");
 
-
 var savedCityList = localStorage.getItem("city-list")
     ? JSON.parse(localStorage.getItem("city-list"))
     : [];
 
 searchForm.addEventListener("submit", (event) => {
+    console.log("hello");
     event.preventDefault();
     savedCityList.push(searchCity.value);
     localStorage.setItem("city-list", JSON.stringify(savedCityList));
@@ -153,5 +155,3 @@ function getWeatherApi(cityName) {
                 })
         });
 }
-
-//future weather will need: date, icon, temp, wind speed, humidity

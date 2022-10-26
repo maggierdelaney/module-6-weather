@@ -1,89 +1,79 @@
 # 06 Server-Side APIs: Weather Dashboard
 
-## Your Task
-
-Third-party APIs allow developers to access their data and functionality by making requests with specific parameters to a URL. Developers are often tasked with retrieving data from another application's API and using it in the context of their own. Your challenge is to build a weather dashboard that will run in the browser and feature dynamically updated HTML and CSS.
-
-Use the [5 Day Weather Forecast](https://openweathermap.org/forecast5) to retrieve weather data for cities. The base URL should look like the following: `https://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={API key}`. After registering for a new API key, you may need to wait up to 2 hours for that API key to activate.
-
-**Hint**: Using the 5 Day Weather Forecast API, you'll notice that you will need to pass in coordinates instead of just a city name. Using the OpenWeatherMap APIs, how could we retrieve geographical coordinates given a city name?
-
-You will use `localStorage` to store any persistent data. For more information on how to work with the OpenWeather API, refer to the [Full-Stack Blog on how to use API keys](https://coding-boot-camp.github.io/full-stack/apis/how-to-use-api-keys).
-
-
-
-## Mock-Up
-
-The following image shows the web application's appearance and functionality:
-
-![The weather app includes a search option, a list of cities, and a five-day forecast and current weather conditions for Atlanta.](./Assets/06-server-side-apis-homework-demo.png)
-
-
-# <Your-Project-Title>
-
 ## Description
 
-AS A traveler
-I WANT to see the weather outlook for multiple cities
-SO THAT I can plan a trip accordingly
-```
+This project required the use of HTML, CSS, Javascript, Bootstrap, jQuery, and server-side APIs to complete. This project meets the following acceptance criteria:
 
 ## Acceptance Criteria
 
-Examples:
-https://github.com/darylnauman/weather-dashboard
+- GIVEN a weather dashboard with form inputs, WHEN I search for a city, THEN I am presented with current and future conditions for that city and that city is added to the search history
+    - If you type a city name into the search box, you will be presented with the current weather forecast, as well as a 5 day forecast. You will also see your searched city added as a button below the search bar.
 
-
-GIVEN a weather dashboard with form inputs, WHEN I search for a city, THEN I am presented with current and future conditions for that city and that city is added to the search history
-    - Add event listener to the submit search button, then the city will need to be passed into a function that pulls the API for that city
-    - Current and future information come from the same API
-    - Parent div for the entire API information:
-        - Div for current
-        - Div for 5-day forecast
-    - api.openweathermap.org/data/2.5/forecast?q={city name}&appid={API key}
-    - The city name will also need to be saved using local storage (setItem, getItem), appended under the search bar
-    - Save the request Url which will create a button (attached to the saved cities) that will get the item and re-start the fetch request
-    - Will need to createEl and append list of buttons with the city names
-
-WHEN I view current weather conditions for that city, THEN I am presented with the city name, the date, an icon representation of weather conditions, the temperature, the humidity, and the wind speed
-    - Fetch request, aksing for the API itself
-    - Must check if request Url will return the data we are asking for, make sure to console.log to make sure you get what you are looking for
-    - Activity #4 may be helpful
-    - Reference mini-project
-    - API, ask to parse out those specific pieces
+- WHEN I view current weather conditions for that city, THEN I am presented with the city name, the date, an icon representation of weather conditions, the temperature, the humidity, and the wind speed
+    - Underneath the "Today's Weather" heading, you will see the city name, the date, as well as weather icon on one line, and then you will see the temperature, humidity, and wind speed listed below it.
 
 - WHEN I view future weather conditions for that city, THEN I am presented with a 5-day forecast that displays the date, an icon representation of weather conditions, the temperature, the wind speed, and the humidity
-    - API, ask to parse out those specific pieces
-    - Consider a card element with bootstrap to make it look nice
+    - Underneath the "5-Day Forecast" heading, you will see the date and weather icon on one line, and then you will see the temperature, humidity, and wind speed listed below it.
 
 - WHEN I click on a city in the search history, THEN I am again presented with current and future conditions for that city
- - May be appending the box and 5 day forecast, need empty div for both to be put in
- - save request url to have it send again?
- - Activity 13/14, must use the 200 thing in fetch
+    - When an old search city is selected from the list of old searches, it will re-populate the forecast to that city
 
 ## Installation
 
-What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.
+1. First, I set up my HTML with a link to all the necessary style sheets at the top (jQuery, bootstrap, css), and script at the bottom (moment.js, javascript).
+
+2. Next, I set up a jumbotron heading using bootstrap, created a div for the search form, and separate divs for the current weather and 5-day forecast. Bootstrap again was used for styling.
+
+3. I started my javascript file by calling all the appropriate elements and storing them into variables: the search form, button, the searched city inside the form input, a variable to hold all the searched cities, the API Key, and separate variables for the current weather and 5 future days of weateer.
+
+4. I began with an event listener for the submit button which added the cities to local storage, and then ran two functions: a function to append each city as a button to the page (to be used later) and a function to fetch the weather API itself.
+
+5. The fetch API function used javascript to append the current weather to the page first, and then appended the 5-day forecast.
+
+6. Then the same fetch was used in a separate function to apply it to the city buttons that are formed, so that the user could go back to old city searches and check the weather again.
 
 ## Usage
 
-Provide instructions and examples for use. Include screenshots as needed.
+To use the page, simply enter any city name in the search bar. It can be all lower case, all upper case, have the first letter capitalized, and even include ", USA" or include any other country code.
 
-To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
+![first city](./assets/images/first-city.png)
 
-    ```md
-    ![alt text](assets/images/screenshot.png)
-    ```
+Once you have typed in a city, press "submit" and you will see 2 things: (1) the city name will be saved in a list under the search bar, and (2) the weather for today in that city will populate, and the 5-day forecast will populate below.
+
+![forecast](./assets/images/forecast.png)
+
+If you want to go back to a previously searched city, simply click on one of the buttons of your previous searches, and it will take you back to that city's forecast.
+
+![old city](./assets/images/old-city.png)
 
 ## Credits
 
-Weather forecast API: https://openweathermap.org/forecast5
-Form inputs: https://www.w3schools.com/html/html_forms.asp#:~:text=The%20element%20is%20a,buttons%2C%20submit%20buttons%2C%20etc.
-Local storage: https://w3collective.com/save-data-localstorage-javascript/
-
-
+- Weather forecast API: https://openweathermap.org/forecast5
+- Form inputs: https://www.w3schools.com/html/html_forms.asp#:~:text=The%20element%20is%20a,buttons%2C%20submit%20buttons%2C%20etc.
+- Local storage: https://w3collective.com/save-data-localstorage-javascript/
+- Fullstack Blog API Keys: https://coding-boot-camp.github.io/full-stack/apis/how-to-use-api-keys
+- Fetch API docs: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
 
 ## License
 
-The last section of a high-quality README file is the license. This lets other developers know what they can and cannot do with your project. If you need help choosing a license, refer to [https://choosealicense.com/](https://choosealicense.com/).
+MIT License
 
+Copyright (c) 2022 maggierdelaney
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
